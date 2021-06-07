@@ -1,0 +1,13 @@
+<h2>
+  <strong>상품 상세 정보</strong>
+</h2>
+
+<div *ngIf="product">
+  <h3>상품 이름 : {{ product.name }}</h3>
+  <h4>상품 가격 : {{ product.price | currency }}</h4>
+  <p>상세 설명 : {{ product.description }}</p>
+
+  <button (click)='addToCart(product)'>
+    장바구니 담기
+  </button>
+</div>
