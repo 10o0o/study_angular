@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -6,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  items = this.cartService.getItems();
+  checkoutForm = this.formBuilder.group({
+    name: '',
+    address: ''
+  })
 
-  constructor() { }
+  constructor(
+    private cartService: CartService,
+    private formBuilder: FormBuilder,
+  ) { }
 
-  ngOnInit() {
+  onSubmit(): void {
+    this.items = this.cartService.clearCart();
+    console.warn('주문이 완료되었습니다.', this.checkoutForm.value);
+    this.checkoutForm.reset();
   }
+
+  ngOnInit() {}
 
 }

@@ -1,8 +1,11 @@
-<a [routerLink]="['/']">
-  <h1>가게</h1>
-</a>
-
-<a class="button fancy-button"><i class="material-icons">shopping_cart</i>결제</a>
+<div class='top-bar'>
+  <a class='flexable' [routerLink]="['/']">
+    <h1>가게</h1>
+  </a>
+  
+  <a class='flexable payload' routerLink='/cart' class="button fancy-button"><i class="material-icons">shopping_cart</i>결제</a>
+  
+</div>
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.
